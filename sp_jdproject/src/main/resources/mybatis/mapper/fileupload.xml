@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="fileUploadMapper">
+	<select id="getCount" resultType="_int">
+		SELECT COUNT(*) FROM JDFILE_UPLOAD
+		 WHERE FILE_BID = #{file_bId}
+	</select>
+	
+	<insert id="insertData" parameterType="fileUploadDto">
+		INSERT INTO JDFILE_UPLOAD
+		     VALUES(FILE_ID_SEQ.NEXTVAL, #{file_bId}
+		          , #{fileName}, #{uuidName}
+		          , #{location}, #{url}
+		          , #{fileSize}, #{contentType})
+	</insert>
+	
+	<select id="selectDatas" resultType="fileUploadDto">
+		SELECT *
+		  FROM JDFILE_UPLOAD
+		 WHERE FILE_BID = #{file_bId}
+	</select>
+	
+	<update id="updateData">
+	UPDATE JDFILE_UPLOAD SET FILENAME = #{fileName} , UUIDNAME = #{uuidName}, 
+						   LOCATION = #{location}, URL = #{url}, 
+						   FILESIZE = #{fileSize}, CONTENTTYPE = #{contentType} 
+						   WHERE FILE_BID = #{file_bId}
+	</update>
+</mapper>

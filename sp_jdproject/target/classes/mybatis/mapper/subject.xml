@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	  
+<mapper namespace="subMapper">
+	<!-- subDto -->
+	<!-- 회원가입 -->
+	<insert id="addData" parameterType="subDto" useGeneratedKeys="true"
+        keyProperty="sell_number" keyColumn="SELL_NUMBER">
+		INSERT INTO SELL_ITEM(SELL_NUMBER, SELL_IDNUMBER, SELL_FIELD, SELL_TITLE, SELL_CONTENT, SELL_PRICE)
+		VALUES(SELL_NUMBER_SEQ.NEXTVAL, #{sell_idNumber}, #{sell_field}, #{sell_title}, #{sell_content}, #{sell_price})
+	</insert>
+	
+	<select id="searchData" resultType="subDto">
+		SELECT * 
+		FROM SELL_ITEM S 
+		FULL OUTER JOIN JDFILE_UPLOAD F 
+		ON S.SELL_NUMBER = F.FILE_BID
+	
+	</select>
+
+
+</mapper>
