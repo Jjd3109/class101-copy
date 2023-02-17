@@ -24,7 +24,21 @@
 	<title>Home</title>
 	
  	<style>
- 		
+ 		.image-box{
+ 			width: 100%;
+		    height: 50%;
+		    overflow:hidden;
+		    margin:0 auto;
+		    background-size: cover;
+		   
+		    
+ 		}
+ 	
+ 		.image-thumbnail {
+		    width:100%;
+		    height:100%;
+		    object-fit:cover;
+		}
  	
  	</style>
 </head>
@@ -32,10 +46,11 @@
 <%@ include file="../header/header.jsp" %>
  <div class="container">
  	<!-- 메인 사진 보여주기 -->
- 	<div>
+ 	<div class="image-box mt-5">
+ 	 <img class="image-thumbnail" src="${pageContext.request.contextPath}${data.url}/${data.uuidName}">
  	</div>
  	<!--  제목 + 바로시작하기-->
-	<div>
+	<div class="mt-5">
 	</div>
 </div>  
 </body>

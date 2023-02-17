@@ -38,8 +38,6 @@ public class SubjectController {
 		//전체 정보...
 		searchData = service.getSearchData();
 		
-		System.out.println(searchData);
-		
 		model.addAttribute("searchData", searchData);
 		
 		
@@ -103,6 +101,23 @@ public class SubjectController {
 		
 	
 	}
+	
+	@GetMapping(value="subject/detail")
+	public String detail(HttpServletRequest request,
+						@RequestParam("itemid") String id,
+						Model model) {
+		//dateil페이지 보여질떄는 몇번 게시물ㅇㄴ지 확인해지고 그걸로 쏴줘야 한다...
+		//sellnumber로 페이지 보여지는 페이지 만들기!
+		
+	
+		SubjectDTO newData = new SubjectDTO();
+		newData = service.getData(Integer.parseInt(id));
+		
+		model.addAttribute("data", newData);
+		
+		return "subject/detail";
+	}
+	
 }
 
 

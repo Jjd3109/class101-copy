@@ -98,14 +98,13 @@
 	 		
 			 		<c:forEach items="${searchData}" var="data">
 			 			
-			 			<div class="card col-3 mt-5 text-bg-dark" style="width: 15rem; ">
+			 			<div class="card col-3 mt-5 text-bg-dark" style="width: 15rem;" onclick="location.href='./subject/detail?itemid=${data.sell_number}'">		
 			 			<c:if test="${not empty data}">
 						  <img src="${pageContext.request.contextPath}${data.url}/${data.uuidName}" class="card-img-top" >
 						  </c:if>
 						  <div class="card-body">
 						    <h5 class="card-title" style="font-size:15px">${data.sell_title}</h5>
-						 
-						  </div>
+						  </div> 
 						</div>
 			 		</c:forEach>
 

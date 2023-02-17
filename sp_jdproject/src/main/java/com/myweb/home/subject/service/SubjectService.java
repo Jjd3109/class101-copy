@@ -31,5 +31,10 @@ public class SubjectService {
 		return searchData;
 	}
 
+	public SubjectDTO getData(int id) {
+		SubjectDTO data = dao.getData(id);
+		return data;
+	}
+
 
 }

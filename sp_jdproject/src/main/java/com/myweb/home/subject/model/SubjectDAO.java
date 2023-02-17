@@ -31,6 +31,13 @@ public class SubjectDAO {
 		return searchData;
 	}
 
+	public SubjectDTO getData(int id) {
+		String mapperId = "subMapper.getData";
+		SubjectDTO data = session.selectOne(mapperId, id);
+		
+		return data;
+	}
+
 
 
 }

@@ -18,6 +18,15 @@
 		ON S.SELL_NUMBER = F.FILE_BID
 	
 	</select>
+	
+	<select id="getData" resultType="subDto">
+		SELECT * 
+		FROM SELL_ITEM S 
+		FULL OUTER JOIN JDFILE_UPLOAD F 
+		ON S.SELL_NUMBER = F.FILE_BID
+		WHERE SELL_NUMBER = #{id}
+	
+	</select>
 
 
 </mapper>
