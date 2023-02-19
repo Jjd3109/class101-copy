@@ -24,9 +24,9 @@ public class SubjectDAO {
 		
 	}
 
-	public List getSearchData() {
+	public List<SubjectDTO> getSearchData() {
 		String mapperId = "subMapper.searchData";
-		List searchData = session.selectList(mapperId);
+		List<SubjectDTO> searchData = session.selectList(mapperId);
 		
 		return searchData;
 	}

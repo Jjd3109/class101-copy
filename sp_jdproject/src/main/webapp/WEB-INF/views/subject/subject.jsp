@@ -60,7 +60,7 @@
 <%@ include file="../header/header.jsp" %>
  <div class="container">
  	<div class="row">
- 		
+ 	
 	 	<div class="col-3">
 	 		<h2 class="mt-5">프로그래밍</h2>
 	 		<ul class="menu">

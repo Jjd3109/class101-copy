@@ -5,11 +5,15 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -20,6 +24,7 @@ import com.myweb.home.subject.service.SubjectService;
 import com.myweb.home.upload.model.FileUploadDTO;
 import com.myweb.home.upload.service.FileUploadService;
 
+
 @Controller
 public class SubjectController {
 
@@ -29,21 +34,39 @@ public class SubjectController {
 	@Autowired
 	private FileUploadService fileUploadService;
 	
-	
+	@ResponseBody
 	@GetMapping(value="/subject")
-	public String subject(Model model) {
+	public ResponseEntity<List<SubjectDTO>> subject(Model model) {
 		//아이템 전부를 불러주게끔 하기...
-		List searchData = null; // 데이터값 비게 만듥...
+		List<SubjectDTO> searchData = null; // 데이터값 비게 만듥...
 		
 		//전체 정보...
 		searchData = service.getSearchData();
 		
 		model.addAttribute("searchData", searchData);
 		
+		System.out.println(searchData);
 		
-		
-		return "subject/subject";
+		return ResponseEntity.status(HttpStatus.OK).body(searchData);
 	}
+	
+	
+//	@GetMapping(value="/subject")
+//	public String subject(Model model) {
+//		//아이템 전부를 불러주게끔 하기...
+//		List<SubjectDTO> searchData = null; // 데이터값 비게 만듥...
+//		
+//		//전체 정보...
+//		searchData = service.getSearchData();
+//		
+//		model.addAttribute("searchData", searchData);
+//		model.addAttribute("result", "sucess");
+//
+//		
+//		System.out.println(searchData);
+//		
+//		return "subject/subject";
+//	}
 	
 	@GetMapping(value="/subject/add")
 	public String add() {

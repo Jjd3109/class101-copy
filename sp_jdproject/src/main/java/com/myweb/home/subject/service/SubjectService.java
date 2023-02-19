@@ -25,8 +25,8 @@ public class SubjectService {
 		
 	}
 
-	public List getSearchData() {
-		List searchData = dao.getSearchData();
+	public List<SubjectDTO> getSearchData() {
+		List<SubjectDTO> searchData = dao.getSearchData();
 		
 		return searchData;
 	}
