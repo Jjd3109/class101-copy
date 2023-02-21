@@ -34,9 +34,10 @@ public class SubjectController {
 	@Autowired
 	private FileUploadService fileUploadService;
 	
-	@ResponseBody
+
+	
 	@GetMapping(value="/subject")
-	public ResponseEntity<List<SubjectDTO>> subject(Model model) {
+	public String subject(Model model) {
 		//아이템 전부를 불러주게끔 하기...
 		List<SubjectDTO> searchData = null; // 데이터값 비게 만듥...
 		
@@ -44,29 +45,13 @@ public class SubjectController {
 		searchData = service.getSearchData();
 		
 		model.addAttribute("searchData", searchData);
+		model.addAttribute("result", "sucess");
+
 		
 		System.out.println(searchData);
 		
-		return ResponseEntity.status(HttpStatus.OK).body(searchData);
+		return "subject/subject";
 	}
-	
-	
-//	@GetMapping(value="/subject")
-//	public String subject(Model model) {
-//		//아이템 전부를 불러주게끔 하기...
-//		List<SubjectDTO> searchData = null; // 데이터값 비게 만듥...
-//		
-//		//전체 정보...
-//		searchData = service.getSearchData();
-//		
-//		model.addAttribute("searchData", searchData);
-//		model.addAttribute("result", "sucess");
-//
-//		
-//		System.out.println(searchData);
-//		
-//		return "subject/subject";
-//	}
 	
 	@GetMapping(value="/subject/add")
 	public String add() {
