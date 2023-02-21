@@ -56,8 +56,9 @@
  	
  	</style>
 </head>
-<body class="p-3 text-bg-dark">
 <%@ include file="../header/header.jsp" %>
+<body class="p-3 text-bg-dark">
+
  <div class="container">
  	<div class="row">
  	
